@@ -1,6 +1,6 @@
 # aws-terraform-reverse-proxy
 
-This project sets up a scalable AWS infrastructure using Terraform, featuring a **reverse proxy architecture**. It includes public and private subnets, EC2 instances, and two layers of Application Load Balancers (ALBs). Nginx runs on proxy instances to reverse proxy requests from a public ALB to backend instances via an internal ALB.
+This project sets up a high available AWS infrastructure using Terraform, featuring a **reverse proxy architecture**. It includes public and private subnets, EC2 instances, and two layers of Application Load Balancers (ALBs). Nginx runs on proxy instances to reverse proxy requests from a public ALB to backend instances via an internal ALB.
 
 ---
 
@@ -43,13 +43,15 @@ v
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/your-username/aws-terraform-reverse-proxy.git
+git clone https://github.com/HagarElsherif/aws-reverse-proxy
 cd aws-terraform-reverse-proxy
 
-3. Initialize Terraform
+---
 
+### 3. Initialize Terraform
+```bash
 terraform init
-
+---
 4. Apply the infrastructure
 
 terraform apply
