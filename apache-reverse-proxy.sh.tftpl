@@ -1,0 +1,14 @@
+#!/bin/bash
+yum update -y
+yum install -y httpd
+
+cat <<EOT > /etc/httpd/conf.d/reverse-proxy.conf
+<VirtualHost *:80>
+    ProxyPreserveHost On
+    ProxyPass / http://${internal_alb_dns}/
+    ProxyPassReverse / http://${internal_alb_dns}/
+</VirtualHost>
+EOT
+
+systemctl start httpd
+systemctl enable httpd
